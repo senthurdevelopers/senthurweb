@@ -24,7 +24,7 @@ export default function HomePage() {
     <div className="home">
       <header className="home-head">
         <div className="wrap home-head-inner">
-          <Brand light href="/" />
+          <Brand href="/" />
           <nav className="home-nav">
             {homeNav.map((n) => (
               <a key={n.href} href={n.href}>
@@ -221,7 +221,7 @@ export default function HomePage() {
 
       <footer className="home-foot">
         <div className="wrap">
-          <Brand light href={null} className="home-foot-logo" />
+          <Brand href={null} className="home-foot-logo" />
           <p>{project.tagline}</p>
           <p className="home-foot-fine">
             © {new Date().getFullYear()} {project.legal}. All rights reserved.

@@ -1,14 +1,12 @@
 import { project } from '../data.js'
 
-// The lockup extracted from the approved logo artwork.
-// `light` is the ivory-ink version for navy surfaces; the default navy-ink
-// version is for ivory surfaces.
-export default function Brand({ light = false, href = '/', className = '' }) {
-  const src = light ? '/senthur-logo-light.png' : '/senthur-logo.png'
+// The approved lockup, used ONLY in its original colours (navy + orange).
+// Surfaces behind it are made light — the artwork itself is never recoloured.
+export default function Brand({ href = '/', className = '' }) {
   const img = (
     <img
       className={`brand-logo ${className}`}
-      src={src}
+      src="/senthur-logo.png"
       alt={`${project.legal}, ${project.tagline}`}
       width="425"
       height="117"

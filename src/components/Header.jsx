@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="masthead">
       <div className="wrap masthead-inner">
-        <Brand light href="/" />
+        <Brand href="/" />
         <a className="masthead-call" href={`tel:${contacts[0].tel}`}>
           <IconPhone width="17" height="17" aria-hidden="true" />
           <span>{contacts[0].display}</span>

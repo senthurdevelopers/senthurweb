@@ -26,7 +26,7 @@ const dataUri = (file) => {
  * script lives inside the HTML. Resolve each chunk to a base64 module URL,
  * depth-first, so the whole graph travels in the one file.
  */
-const IMAGES = ['senthur-logo.png', 'senthur-logo-light.png', 'senthur-mark.png']
+const IMAGES = ['senthur-logo.png', 'senthur-mark.png', 'layout-map.png']
 const inlineImages = (text) => {
   for (const img of IMAGES) text = text.split(`/${img}`).join(dataUri(img))
   return text

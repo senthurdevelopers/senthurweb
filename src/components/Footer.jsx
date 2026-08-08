@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="foot">
       <div className="wrap foot-inner">
-        <Brand light href="/" className="foot-logo" />
+        <Brand href="/" className="foot-logo" />
 
         <p className="foot-name">
           {project.tagline} · <span>{project.name}</span>
