@@ -55,20 +55,30 @@ export default function Invitation() {
           </dl>
 
           <div className="offers">
-            <p className="offers-label">Launch-day offers</p>
-            <div className="offers-row">
-              {offers.map((o) => (
-                <div className={`offer ${o.coin ? 'offer-coin' : ''}`} key={o.lead}>
-                  {o.coin && <GoldCoin className="coin" />}
-                  <div>
-                    <p className="offer-lead">
-                      {o.strike && <s>{o.strike}</s>}
-                      {o.lead}
-                    </p>
-                    <p className="offer-note">{o.note}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="offers-head">
+              <span className="offers-rule" aria-hidden="true" />
+              <p className="offers-label">Launch-Day Offers</p>
+              <span className="offers-rule" aria-hidden="true" />
+            </div>
+
+            <div className="offer-price">
+              <s>{offers[0].strike}</s>
+              <p className="offer-price-big">
+                ₹10,90,000 <span>/ cent</span>
+              </p>
+              <p className="offer-price-note">
+                Launch-day price, <strong>first 20</strong> site bookings only
+              </p>
+            </div>
+
+            <div className="offer-coin-panel">
+              <GoldCoin className="coin" />
+              <span className="offer-divider" aria-hidden="true" />
+              <div className="offer-coin-copy">
+                <p className="offer-coin-title">1 Gram Gold Coin</p>
+                <span className="offer-free">Free</span>
+                <p className="offer-note">{offers[1].note}</p>
+              </div>
             </div>
           </div>
 

@@ -165,10 +165,6 @@ export const GoldCoin = (p) => (
     >
       GOLD
     </text>
-    {/* milled edge ticks */}
-    <g stroke="#8a6414" strokeWidth="2" opacity="0.55">
-      <path d="M66 6v7M66 107v7M12 60h7M113 60h7M28 22l5 5M99 93l5 5M104 22l-5 5M33 93l-5 5" />
-    </g>
     {/* gloss sweep */}
     <g className="coin-gloss">
       <path

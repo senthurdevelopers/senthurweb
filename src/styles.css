@@ -530,68 +530,133 @@ select {
   color: var(--accent);
 }
 
-/* --- launch-day offers ----------------------------------------------------- */
+/* --- launch-day offers ------------------------------------------------------
+   Styled after the printed offer card: gold-ruled maroon title, struck old
+   price over a large navy price, and the gold coin on its own ruled panel
+   with a red FREE chip. This block keeps GOLD accents deliberately — it is
+   the gold-coin moment — while the rest of the page runs brand orange. */
 
 .offers {
-  margin-top: 22px;
-  padding: 18px 16px 16px;
-  background: var(--gold-tint);
-  border: 1px solid var(--gold-foil);
+  margin-top: 24px;
+  padding: 20px clamp(14px, 3vw, 26px) clamp(16px, 3vw, 24px);
+  background: rgba(201, 162, 39, 0.06);
+  border: 1px solid #c9a227;
   border-radius: var(--r-md);
 }
 
+.offers-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.offers-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(201, 162, 39, 0.55);
+}
+
 .offers-label {
-  font-size: 0.72rem;
+  flex: none;
+  font-size: clamp(0.78rem, 1.8vw, 0.92rem);
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
-.offers-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 12px;
+.offer-price {
+  margin-top: 16px;
+  text-align: center;
 }
 
-.offer-lead {
+.offer-price s {
   font-family: var(--serif);
-  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 600;
+  color: var(--plate-ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: #b3261e;
+  text-decoration-thickness: 2px;
+}
+
+.offer-price-big {
+  margin-top: 2px;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 5.6vw, 3rem);
   font-weight: 700;
+  line-height: 1.1;
   color: var(--plate-ink);
 }
 
-.offer-lead s {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 500;
+.offer-price-big span {
+  font-size: 0.62em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.offer-price-note {
+  margin-top: 6px;
+  font-size: clamp(0.88rem, 2vw, 1rem);
   color: var(--plate-ink-soft);
+}
+
+.offer-price-note strong {
+  color: var(--plate-ink);
+}
+
+/* the coin panel */
+.offer-coin-panel {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 3vw, 24px);
+  margin-top: 18px;
+  padding: clamp(14px, 3vw, 22px) clamp(14px, 3.5vw, 28px);
+  text-align: left;
+  background: rgba(255, 253, 246, 0.75);
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  border-radius: var(--r-md);
+}
+
+.offer-coin-panel .coin {
+  flex: none;
+  width: clamp(84px, 13vw, 122px);
+  height: auto;
+  filter: drop-shadow(0 5px 12px rgba(138, 100, 20, 0.35));
+}
+
+.offer-divider {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(201, 162, 39, 0.45);
+}
+
+.offer-coin-title {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a5a10;
+}
+
+.offer-free {
+  display: inline-block;
+  margin: 7px 0 4px;
+  padding: 4px 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #9c1f1f;
+  border-radius: 8px;
 }
 
 .offer-note {
   margin-top: 4px;
-  font-size: 0.82rem;
+  font-size: clamp(0.84rem, 1.9vw, 0.95rem);
   color: var(--plate-ink-soft);
-}
-
-/* the gold coin offer — the loudest thing in the box */
-.offer-coin {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  text-align: left;
-}
-
-.offer-coin .coin {
-  flex: none;
-  width: clamp(64px, 9vw, 84px);
-  height: auto;
-  filter: drop-shadow(0 4px 10px rgba(138, 100, 20, 0.35));
-}
-
-.offer-coin .offer-lead {
-  color: #8a5a10;
 }
 
 /* slow sheen across the coin face */
@@ -619,9 +684,16 @@ select {
   }
 }
 
-@media (max-width: 560px) {
-  .offers-row {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 460px) {
+  .offer-coin-panel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .offer-divider {
+    width: 60%;
+    height: 1px;
+    align-self: center;
   }
 }
 
