@@ -9,7 +9,7 @@ export default function Brand({ href = '/', className = '' }) {
       src="/senthur-logo.png"
       alt={`${project.legal}, ${project.tagline}`}
       width="1200"
-      height="764"
+      height="834"
     />
   )
 
