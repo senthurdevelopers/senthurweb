@@ -1,4 +1,11 @@
-import { project, event, location, contacts, directionsUrl } from '../data.js'
+import {
+  project,
+  event,
+  location,
+  contacts,
+  approval,
+  offers,
+} from '../data.js'
 import { IconPhone, IconPin, Rule, Corner, GateScene } from './Icons.jsx'
 import Countdown from './Countdown.jsx'
 
@@ -23,11 +30,13 @@ export default function Invitation() {
 
           <h1 className="card-title">
             <span className="card-title-main">{project.eventTitle}</span>
-            <span className="card-title-of">of</span>
+            <span className="card-title-of">{project.eventSub} of</span>
             <span className="card-title-name">{project.name}</span>
           </h1>
 
-          <p className="ribbon">{project.badge}</p>
+          <p className="ribbon">
+            {project.badge} · {approval.dtcp}
+          </p>
 
           <p className="lede">{project.intro}</p>
 
@@ -45,6 +54,21 @@ export default function Invitation() {
             ))}
           </dl>
 
+          <div className="offers">
+            <p className="offers-label">Launch-day offers</p>
+            <div className="offers-row">
+              {offers.map((o) => (
+                <div className="offer" key={o.lead}>
+                  <p className="offer-lead">
+                    {o.strike && <s>{o.strike}</s>}
+                    {o.lead}
+                  </p>
+                  <p className="offer-note">{o.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <Countdown />
 
           <div className="actions">
@@ -57,7 +81,7 @@ export default function Invitation() {
             </a>
             <a
               className="btn btn-line"
-              href={directionsUrl}
+              href={location.shareUrl}
               target="_blank"
               rel="noopener noreferrer"
             >

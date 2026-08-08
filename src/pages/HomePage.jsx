@@ -32,7 +32,7 @@ export default function HomePage() {
               </a>
             ))}
             <a className="home-nav-cta" href="/launch/">
-              Grand Launch
+              Grand Opening
             </a>
           </nav>
         </div>
@@ -83,7 +83,7 @@ export default function HomePage() {
             </p>
             <div className="home-cta">
               <a className="hbtn hbtn-orange" href="/launch/">
-                Grand Launch · {event.dateLabel}
+                Grand Opening · {event.dateLabel}
                 <IconArrow width="17" height="17" aria-hidden="true" />
               </a>
               <a className="hbtn hbtn-glass" href={`tel:${contacts[0].tel}`}>
@@ -106,7 +106,7 @@ export default function HomePage() {
               </p>
             </div>
             <a className="hbtn hbtn-orange" href="/launch/">
-              See the launch
+              See the opening
               <IconArrow width="17" height="17" aria-hidden="true" />
             </a>
           </div>

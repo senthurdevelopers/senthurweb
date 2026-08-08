@@ -99,6 +99,13 @@ export const IconArrow = (p) => (
   </svg>
 )
 
+export const IconLock = (p) => (
+  <svg {...base} {...p}>
+    <rect x="5" y="10.5" width="14" height="9.5" rx="1.5" />
+    <path d="M8 10.5V7.5a4 4 0 018 0v3M12 14.5v2" />
+  </svg>
+)
+
 export const iconMap = {
   shield: IconShield,
   road: IconRoad,
@@ -106,6 +113,7 @@ export const iconMap = {
   light: IconLight,
   park: IconPark,
   doc: IconDoc,
+  lock: IconLock,
 }
 
 // Floral corner spray, echoing the printed card's engraved corners:

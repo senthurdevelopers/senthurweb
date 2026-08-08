@@ -505,6 +505,122 @@ select {
   color: var(--accent);
 }
 
+/* --- launch-day offers ----------------------------------------------------- */
+
+.offers {
+  margin-top: 22px;
+  padding: 18px 16px 16px;
+  background: var(--gold-tint);
+  border: 1px solid var(--gold-foil);
+  border-radius: 4px;
+}
+
+.offers-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.offers-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.offer-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 700;
+  color: var(--plate-ink);
+}
+
+.offer-lead s {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--plate-ink-soft);
+}
+
+.offer-note {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--plate-ink-soft);
+}
+
+@media (max-width: 560px) {
+  .offers-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- approved layout ------------------------------------------------------- */
+
+.layout {
+  padding: clamp(30px, 5vw, 54px) 0 0;
+}
+
+.layout-plate {
+  padding: clamp(22px, 4vw, 36px);
+  color: var(--plate-ink);
+  background: var(--plate);
+  border: 1px solid var(--gold-foil);
+}
+
+.layout-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.layout-head .kicker {
+  color: var(--gold-on-plate);
+}
+
+.layout-head h2 {
+  margin-top: 8px;
+  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+}
+
+.layout-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.layout-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layout-facts li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.9rem;
+  color: var(--plate-ink-soft);
+}
+
+.layout-facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--gold-foil);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

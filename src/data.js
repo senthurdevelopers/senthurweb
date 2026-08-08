@@ -5,14 +5,48 @@ export const project = {
   developer: 'Senthur Developers',
   legal: 'Senthur Developers Pvt Ltd',
   tagline: 'Building trust, creating values',
+  // wording from the printed launch poster
+  eventSub: 'Ceremony',
+  premiumLine: 'A premium living… a better future.',
   name: 'Senthur Krishna Enclave',
   badge: 'DTCP Approved Layout',
   invite: 'You are cordially invited to the',
-  eventTitle: 'Grand Launch',
-  intro:
-    'Be a part of a new beginning and discover a lifestyle of comfort, convenience & prosperity.',
+  eventTitle: 'Grand Opening',
+  intro: 'A premium living… a better future.',
   closing:
     'Come & explore our premium DTCP-approved plots with attractive launch-day offers. Your gracious presence will make this occasion truly special.',
+}
+
+// Approval identifiers from the printed poster and layout flyer.
+export const approval = {
+  dtcp: 'L.P/DTCP No. 106/2026',
+  plan: 'Plan permit no. 126/2026',
+}
+
+// Launch-day offers, verbatim from the poster.
+export const offers = [
+  {
+    lead: '₹10,90,000 / cent',
+    strike: '₹11,90,000',
+    note: 'Launch-day price, first 20 site bookings only',
+  },
+  {
+    lead: '1 gram gold coin free',
+    strike: null,
+    note: 'Per cent, for registrations done on launch day',
+  },
+]
+
+// The approved layout, from the plot map flyer.
+export const layout = {
+  image: '/layout-map.png',
+  alt: 'Approved plot layout of Senthur Krishna Enclave: 61 numbered plots along black top roads, with a park at the north east corner',
+  facts: [
+    '61 plots, 1 to 4 cents',
+    'Park inside the layout',
+    '9.14 m and 10 m black top roads',
+    'Approved layout, L.P/DTCP No. 106/2026',
+  ],
 }
 
 export const event = {
@@ -30,42 +64,47 @@ export const location = {
   line1: 'Senthur Krishna Enclave,',
   line2: 'Kalangal, Sulur,',
   line3: 'Coimbatore 641 402.',
-  query: 'Senthur Krishna Enclave, Kalangal, Sulur, Coimbatore 641402',
+  // exact site pin, decoded from the QR on the printed invite
+  lat: 11.009786,
+  lng: 77.13916,
+  shareUrl: 'https://maps.app.goo.gl/RkpqjKXutDT5SLFH6',
 }
 
-export const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
-  location.query,
-)}&output=embed`
+export const mapEmbedUrl = `https://www.google.com/maps?q=${location.lat},${location.lng}&z=16&output=embed`
 
-export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-  location.query,
-)}`
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`
 
+// Amenity set from the launch poster, plus clear title from the invite.
 export const amenities = [
   {
-    title: 'DTCP Approved',
-    note: 'Government-sanctioned layout',
+    title: 'DTCP Approved Layout',
+    note: 'L.P/DTCP No. 106/2026',
     icon: 'shield',
   },
   {
-    title: 'Well Developed Black Top Roads',
-    note: 'Wide, tarred internal roads',
+    title: 'Wide Black Top Roads',
+    note: '9.14 m and 10 m tarred roads',
     icon: 'road',
   },
   {
-    title: 'Potable Water Facility',
-    note: 'Clean water connection ready',
+    title: 'Water Facility',
+    note: 'Connection ready at the plot',
     icon: 'water',
   },
   {
-    title: 'Street Light Facility',
+    title: 'Street Lights',
     note: 'Lit streets, safe evenings',
     icon: 'light',
   },
   {
-    title: 'Park & Open Spaces',
-    note: 'Green breathing room for families',
+    title: 'Park & Landscaping',
+    note: 'Green space inside the layout',
     icon: 'park',
+  },
+  {
+    title: 'Secured Community',
+    note: 'A layout planned to live safe',
+    icon: 'lock',
   },
   {
     title: 'Clear Title & Legal Security',
@@ -74,10 +113,11 @@ export const amenities = [
   },
 ]
 
+// Order follows the launch poster.
 export const contacts = [
-  { display: '95001 95480', tel: '+919500195480' },
+  { display: '93616 50470', tel: '+919361650470' },
   { display: '98410 64379', tel: '+919841064379' },
-  { display: '94433 26039', tel: '+919443326039' },
+  { display: '95001 95480', tel: '+919500195480' },
 ]
 
 export const office = {
