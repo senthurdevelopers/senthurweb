@@ -239,8 +239,23 @@ select {
 
 /* --- the invitation plate -------------------------------------------------- */
 
+/* The launch scene sits quietly behind the card: its navy sky merges into
+   the page canvas at the top, a navy veil keeps it from overpowering, and
+   the opaque ivory card carries all the text. */
 .invite {
+  position: relative;
   padding: clamp(28px, 5vw, 56px) 0 clamp(28px, 5vw, 52px);
+  background-image: linear-gradient(
+      180deg,
+      var(--canvas) 0%,
+      rgba(11, 40, 72, 0.55) 18%,
+      rgba(11, 40, 72, 0.28) 55%,
+      rgba(11, 40, 72, 0.72) 88%,
+      var(--canvas) 100%
+    ),
+    url('/hero-scene.jpg');
+  background-size: cover, cover;
+  background-position: center, center 68%;
 }
 
 /* Depth is declared once — a gold plate edge, never edge plus shadow.

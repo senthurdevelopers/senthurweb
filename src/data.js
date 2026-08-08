@@ -114,11 +114,12 @@ export const amenities = [
   },
 ]
 
-// Order follows the launch poster.
+// 95001 95480 is the WhatsApp line and the PRIMARY number — it leads
+// everywhere a number is shown or dialled. The rest are secondary.
 export const contacts = [
-  { display: '93616 50470', tel: '+919361650470' },
-  { display: '98410 64379', tel: '+919841064379' },
   { display: '95001 95480', tel: '+919500195480' },
+  { display: '98410 64379', tel: '+919841064379' },
+  { display: '93616 50470', tel: '+919361650470' },
 ]
 
 export const office = {

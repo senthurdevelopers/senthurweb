@@ -6,7 +6,7 @@ import {
   approval,
   offers,
 } from '../data.js'
-import { IconPhone, IconPin, Rule, Corner, GateScene, GoldCoin } from './Icons.jsx'
+import { IconPhone, IconPin, Rule, Corner, GoldCoin } from './Icons.jsx'
 import Countdown from './Countdown.jsx'
 
 const facts = [
@@ -98,7 +98,6 @@ export default function Invitation() {
           </p>
         </article>
 
-        <GateScene />
       </div>
     </section>
   )
