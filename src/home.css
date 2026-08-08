@@ -103,7 +103,7 @@
 .home-nav-cta {
   background: var(--orange-solid);
   color: #fff !important;
-  border-radius: 2px;
+  border-radius: 10px;
   font-weight: 600 !important;
 }
 
@@ -306,7 +306,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 8px;
 }
 
 .home-launch h2 {
@@ -362,7 +362,7 @@
 .home-values span {
   padding: 7px 14px;
   border: 1px solid var(--hairline);
-  border-radius: 2px;
+  border-radius: 999px;
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -541,7 +541,7 @@
   min-height: 50px;
   padding: 12px 18px;
   border: 1px solid var(--hairline-navy);
-  border-radius: 2px;
+  border-radius: 12px;
   color: var(--on-navy);
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -577,7 +577,7 @@
   margin: 0 auto 14px;
   background: var(--ivory);
   border: 1px solid rgba(241, 93, 33, 0.4);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .home-foot p {

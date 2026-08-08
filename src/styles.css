@@ -32,6 +32,11 @@
   --line-navy: rgba(255, 138, 92, 0.26); /* hairlines on navy */
   --control-edge: rgba(11, 40, 72, 0.55); /* control borders — needs 3:1 */
 
+  /* corner radii — every container and control is curved */
+  --r-lg: 22px; /* plates, cards, map */
+  --r-md: 14px; /* inner panels, slides, chips */
+  --r-sm: 12px; /* buttons, inputs */
+
   --serif: 'Cinzel', 'Trajan Pro', Georgia, serif;
   --script: 'Pinyon Script', 'Apple Chancery', cursive;
   --sans: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -145,7 +150,7 @@ select {
   min-height: 48px;
   padding: 13px 24px;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: var(--r-sm);
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -269,6 +274,7 @@ select {
   color: var(--plate-ink);
   background: var(--plate);
   border: 2px solid var(--gold-foil);
+  border-radius: var(--r-lg);
   animation: settle 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -278,6 +284,7 @@ select {
   position: absolute;
   inset: 10px;
   border: 1px solid rgba(241, 93, 33, 0.5);
+  border-radius: calc(var(--r-lg) - 8px);
   pointer-events: none;
 }
 
@@ -369,7 +376,7 @@ select {
   color: var(--gold-bright);
   background: linear-gradient(160deg, #123259, var(--canvas-deep));
   border: 1px solid var(--gold-foil);
-  border-radius: 4px;
+  border-radius: var(--r-md);
 }
 
 /* gold band with swallowtail ribbon ends, overlapping the cartouche */
@@ -463,6 +470,7 @@ select {
   padding: 14px 0 16px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  border-radius: var(--r-md);
 }
 
 .countdown-caption {
@@ -529,7 +537,7 @@ select {
   padding: 18px 16px 16px;
   background: var(--gold-tint);
   border: 1px solid var(--gold-foil);
-  border-radius: 4px;
+  border-radius: var(--r-md);
 }
 
 .offers-label {
@@ -628,6 +636,7 @@ select {
   color: var(--plate-ink);
   background: var(--plate);
   border: 1px solid var(--gold-foil);
+  border-radius: var(--r-lg);
 }
 
 .layout-head {
@@ -653,6 +662,7 @@ select {
   width: 100%;
   height: auto;
   border: 1px solid var(--line);
+  border-radius: var(--r-md);
 }
 
 .layout-facts {
@@ -780,6 +790,7 @@ select {
   border: 1px solid var(--gold-foil);
   border-top: 3px solid var(--gold-foil);
   min-width: 0;
+  border-radius: var(--r-md);
 }
 
 .slide-head {
@@ -861,9 +872,11 @@ select {
 
 .visit-map {
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--line);
+  border-radius: var(--r-lg);
 }
 
 .visit-map iframe {
@@ -895,6 +908,7 @@ select {
 .visit-form {
   padding: clamp(24px, 4vw, 34px);
   color: var(--plate-ink);
+  border-radius: var(--r-lg);
 }
 
 .visit-form h2 {
@@ -929,7 +943,7 @@ select {
   margin-bottom: 16px;
   padding: 12px 14px;
   border: 1px solid var(--control-edge);
-  border-radius: 2px;
+  border-radius: var(--r-sm);
   background: #fffdf7;
   color: var(--plate-ink);
   transition: border-color 0.18s ease;
@@ -987,6 +1001,7 @@ select {
   color: var(--plate-ink);
   background: var(--plate);
   border: 1px solid var(--gold-foil);
+  border-radius: var(--r-lg);
 }
 
 .about-lead .kicker {
@@ -1138,7 +1153,7 @@ select {
   margin-bottom: 16px;
   background: var(--plate);
   border: 1px solid rgba(241, 93, 33, 0.45);
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .foot-logo {
@@ -1205,6 +1220,8 @@ select {
 
 .callbar {
   display: none;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
   position: fixed;
   inset-inline: 0;
   bottom: 0;
