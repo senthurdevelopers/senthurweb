@@ -6,7 +6,7 @@ import {
   approval,
   offers,
 } from '../data.js'
-import { IconPhone, IconPin, Rule, Corner, GateScene } from './Icons.jsx'
+import { IconPhone, IconPin, Rule, Corner, GateScene, GoldCoin } from './Icons.jsx'
 import Countdown from './Countdown.jsx'
 
 const facts = [
@@ -58,12 +58,15 @@ export default function Invitation() {
             <p className="offers-label">Launch-day offers</p>
             <div className="offers-row">
               {offers.map((o) => (
-                <div className="offer" key={o.lead}>
-                  <p className="offer-lead">
-                    {o.strike && <s>{o.strike}</s>}
-                    {o.lead}
-                  </p>
-                  <p className="offer-note">{o.note}</p>
+                <div className={`offer ${o.coin ? 'offer-coin' : ''}`} key={o.lead}>
+                  {o.coin && <GoldCoin className="coin" />}
+                  <div>
+                    <p className="offer-lead">
+                      {o.strike && <s>{o.strike}</s>}
+                      {o.lead}
+                    </p>
+                    <p className="offer-note">{o.note}</p>
+                  </div>
                 </div>
               ))}
             </div>

@@ -99,6 +99,87 @@ export const IconArrow = (p) => (
   </svg>
 )
 
+// Embossed 3D gold coin for the launch-day offer. Pure SVG — gradients give
+// the metal, the stacked ellipse gives the thickness, the gloss group gets a
+// slow CSS sheen (disabled under reduced motion).
+export const GoldCoin = (p) => (
+  <svg viewBox="0 0 132 128" fill="none" aria-hidden="true" {...p}>
+    <defs>
+      <linearGradient id="coin-edge" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#a87f16" />
+        <stop offset="0.5" stopColor="#7a5a10" />
+        <stop offset="1" stopColor="#5e440b" />
+      </linearGradient>
+      <radialGradient id="coin-face" cx="0.35" cy="0.3" r="0.85">
+        <stop offset="0" stopColor="#fdf3c0" />
+        <stop offset="0.45" stopColor="#eecb63" />
+        <stop offset="0.8" stopColor="#d4a72c" />
+        <stop offset="1" stopColor="#b8901f" />
+      </radialGradient>
+      <linearGradient id="coin-ring" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#8a6414" />
+        <stop offset="0.5" stopColor="#c9a227" />
+        <stop offset="1" stopColor="#8a6414" />
+      </linearGradient>
+      <linearGradient id="coin-gloss-g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#ffffff" stopOpacity="0.9" />
+        <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+
+    {/* ground shadow + thickness */}
+    <ellipse cx="66" cy="118" rx="46" ry="7" fill="#10254c" opacity="0.18" />
+    <ellipse cx="66" cy="66" rx="58" ry="56" fill="url(#coin-edge)" />
+    {/* face */}
+    <ellipse cx="66" cy="60" rx="58" ry="56" fill="url(#coin-face)" />
+    <ellipse
+      cx="66"
+      cy="60"
+      rx="47"
+      ry="45"
+      fill="none"
+      stroke="url(#coin-ring)"
+      strokeWidth="3"
+    />
+    {/* engraving */}
+    <text
+      x="66"
+      y="64"
+      textAnchor="middle"
+      fontFamily="Cinzel, Georgia, serif"
+      fontWeight="700"
+      fontSize="34"
+      fill="#7a5a10"
+    >
+      1g
+    </text>
+    <text
+      x="66"
+      y="86"
+      textAnchor="middle"
+      fontFamily="Libre Franklin, sans-serif"
+      fontWeight="600"
+      fontSize="11"
+      letterSpacing="2"
+      fill="#8a6414"
+    >
+      GOLD
+    </text>
+    {/* milled edge ticks */}
+    <g stroke="#8a6414" strokeWidth="2" opacity="0.55">
+      <path d="M66 6v7M66 107v7M12 60h7M113 60h7M28 22l5 5M99 93l5 5M104 22l-5 5M33 93l-5 5" />
+    </g>
+    {/* gloss sweep */}
+    <g className="coin-gloss">
+      <path
+        d="M22 30a58 56 0 0130-19l-8 96a58 56 0 01-27-22z"
+        fill="url(#coin-gloss-g)"
+        opacity="0.35"
+      />
+    </g>
+  </svg>
+)
+
 export const IconLock = (p) => (
   <svg {...base} {...p}>
     <rect x="5" y="10.5" width="14" height="9.5" rx="1.5" />

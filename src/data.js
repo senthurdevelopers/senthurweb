@@ -34,6 +34,7 @@ export const offers = [
     lead: '1 gram gold coin free',
     strike: null,
     note: 'Per cent, for registrations done on launch day',
+    coin: true,
   },
 ]
 
