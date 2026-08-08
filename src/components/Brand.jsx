@@ -10,8 +10,8 @@ export default function Brand({ light = false, href = '/', className = '' }) {
       className={`brand-logo ${className}`}
       src={src}
       alt={`${project.legal}, ${project.tagline}`}
-      width="1400"
-      height="432"
+      width="425"
+      height="117"
     />
   )
 
