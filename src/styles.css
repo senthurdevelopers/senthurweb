@@ -1,0 +1,1076 @@
+/* ==========================================================================
+   Senthur Krishna Enclave — Grand Launch
+   The printed invitation's own colourway: deep navy canvas, ivory plates,
+   gold foil keylines. One committed look — no light/dark split, because the
+   card it comes from has one.
+   ========================================================================== */
+
+:root {
+  /* canvas — the navy border of the printed invite */
+  --canvas: #0a1c3a;
+  --canvas-deep: #061530;
+  --canvas-ink: #f6f0e3;
+  --canvas-ink-soft: rgba(246, 240, 227, 0.74);
+
+  /* plate — the ivory paper the invitation is printed on */
+  --plate: #fbf6ea;
+  --plate-edge: #f3ebd8;
+  --plate-ink: #10254c;
+  --plate-ink-soft: #4a5674;
+
+  /* foil */
+  --gold-foil: #c9a227; /* rules, borders, button fills */
+  --gold-bright: #e6c76e; /* foil on navy */
+  --gold-on-navy: #e2be5f; /* text/icons on the canvas */
+  --gold-on-plate: #856612; /* text on ivory — AA */
+  --gold-tint: rgba(201, 162, 39, 0.12);
+
+  --accent: #7a1b1b; /* the invite's maroon */
+
+  --line: rgba(16, 37, 76, 0.16); /* hairlines on ivory */
+  --line-navy: rgba(230, 199, 110, 0.24); /* hairlines on navy */
+  --control-edge: rgba(16, 37, 76, 0.55); /* control borders — needs 3:1 */
+
+  --serif: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  --script: 'Pinyon Script', 'Apple Chancery', cursive;
+  --sans: 'Libre Franklin', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --wrap: 1080px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--canvas-ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: var(--canvas);
+  /* deep navy that darkens toward the edges, like the printed border */
+  background-image: radial-gradient(
+      120% 80% at 50% 0%,
+      #12294f 0%,
+      var(--canvas) 45%,
+      var(--canvas-deep) 100%
+    ),
+    radial-gradient(rgba(230, 199, 110, 0.05) 0.5px, transparent 0.5px);
+  background-size: cover, 4px 4px;
+  background-attachment: fixed, scroll;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+p,
+dl,
+dd,
+dt {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+iframe {
+  border: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* --- engraved labels ------------------------------------------------------- */
+
+.kicker,
+.fact dt,
+.ribbon {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* --- buttons --------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.btn-gold {
+  background: var(--gold-foil);
+  color: #0b1f43;
+}
+
+.btn-gold:hover {
+  background: #b8901f;
+}
+
+/* outline button — lives on an ivory plate */
+.btn-line {
+  border-color: var(--control-edge);
+  color: var(--plate-ink);
+  background: transparent;
+}
+
+.btn-line:hover {
+  border-color: var(--gold-on-plate);
+  background: var(--gold-tint);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* --- masthead -------------------------------------------------------------- */
+
+.masthead {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line-navy);
+}
+
+.masthead-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 36px;
+}
+
+.masthead-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.masthead-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--canvas-ink-soft);
+}
+
+.masthead-back:hover {
+  color: var(--gold-on-navy);
+}
+
+.masthead-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--canvas-ink);
+}
+
+.masthead-call:hover {
+  color: var(--gold-on-navy);
+}
+
+/* --- the invitation plate -------------------------------------------------- */
+
+.invite {
+  padding: clamp(28px, 5vw, 56px) 0 clamp(28px, 5vw, 52px);
+}
+
+/* Depth is declared once — a gold plate edge, never edge plus shadow.
+   The only authored motion on the page: the plate settles onto the navy. */
+.card {
+  position: relative;
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(38px, 6vw, 68px) clamp(24px, 5vw, 60px);
+  text-align: center;
+  color: var(--plate-ink);
+  background: var(--plate);
+  border: 2px solid var(--gold-foil);
+  animation: settle 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* inner keyline, as engraved on the printed card */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  pointer-events: none;
+}
+
+.card-corner {
+  position: absolute;
+  width: clamp(34px, 6vw, 52px);
+  height: auto;
+  color: var(--gold-foil);
+  pointer-events: none;
+}
+
+.card-corner-tl {
+  top: 16px;
+  left: 16px;
+}
+
+.card-corner-tr {
+  top: 16px;
+  right: 16px;
+  transform: scaleX(-1);
+}
+
+.card-corner-bl {
+  bottom: 16px;
+  left: 16px;
+  transform: scaleY(-1);
+}
+
+.card-corner-br {
+  bottom: 16px;
+  right: 16px;
+  transform: scale(-1);
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.kicker {
+  color: var(--plate-ink-soft);
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
+}
+
+/* Cinzel is already wide — heavy tracking on top reads as a logo. */
+.card-title-main {
+  font-size: clamp(2rem, 6.8vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--plate-ink);
+}
+
+.card-title-of {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--plate-ink-soft);
+  margin: 10px 0 2px;
+}
+
+/* the name sits on its own navy cartouche, as on the invite */
+.card-title-name {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px clamp(16px, 4vw, 40px) 18px;
+  font-family: var(--script);
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--gold-bright);
+  background: linear-gradient(160deg, #133060, var(--canvas-deep));
+  border: 1px solid var(--gold-foil);
+  border-radius: 4px;
+}
+
+.ribbon {
+  display: inline-block;
+  margin-top: -10px;
+  padding: 9px 22px;
+  position: relative;
+  background: var(--gold-foil);
+  color: #0b1f43;
+  border-radius: 2px;
+}
+
+.lede {
+  max-width: 34ch;
+  margin: 24px auto 0;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--plate-ink-soft);
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 300px;
+  margin: 26px auto;
+  color: var(--gold-foil);
+}
+
+.rule span {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* --- quick facts ----------------------------------------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.fact {
+  padding: 18px 10px;
+  border-right: 1px solid var(--line);
+}
+
+.fact:last-child {
+  border-right: 0;
+}
+
+.fact dt {
+  color: var(--gold-on-plate);
+}
+
+.fact dd {
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--plate-ink);
+}
+
+.fact dd span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--plate-ink-soft);
+  margin-top: 2px;
+}
+
+.countdown {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.card-foot {
+  margin-top: 22px;
+  font-size: 0.86rem;
+  color: var(--plate-ink-soft);
+}
+
+/* --- highlights carousel --------------------------------------------------- */
+
+.strip {
+  padding: clamp(30px, 5vw, 54px) 0;
+  border-top: 1px solid var(--line-navy);
+}
+
+.strip-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.strip-head h2 {
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  color: var(--canvas-ink);
+}
+
+.strip-nav {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+
+.strip-nav button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold-foil);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gold-on-navy);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+}
+
+.strip-nav button:hover:not(:disabled) {
+  background: var(--gold-tint);
+}
+
+.strip-nav button:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+
+.track {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding: 4px 20px 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: 20px;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ivory plates, not template cards */
+.slide {
+  flex: 0 0 clamp(240px, 30%, 320px);
+  scroll-snap-align: start;
+  padding: 22px 22px 24px;
+  color: var(--plate-ink);
+  background: var(--plate);
+  border: 1px solid var(--gold-foil);
+  border-top: 3px solid var(--gold-foil);
+  min-width: 0;
+}
+
+.slide-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.slide-icon {
+  flex: none;
+  color: var(--gold-on-plate);
+  margin-top: 2px;
+}
+
+.slide h3 {
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
+.slide p {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--plate-ink-soft);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 18px;
+}
+
+.dots button {
+  width: 32px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.dots button::after {
+  content: '';
+  position: absolute;
+  inset: 21px 12px;
+  border-radius: 50%;
+  background: var(--line-navy);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dots button.is-active::after {
+  background: var(--gold-bright);
+  transform: scale(1.35);
+}
+
+/* --- visit / slot ---------------------------------------------------------- */
+
+.visit {
+  padding: clamp(30px, 5vw, 56px) 0 clamp(36px, 6vw, 64px);
+  border-top: 1px solid var(--line-navy);
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.visit-map {
+  position: relative;
+  background: var(--plate);
+  border: 1px solid var(--gold-foil);
+}
+
+.visit-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  filter: saturate(0.9);
+}
+
+.map-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--plate-ink);
+}
+
+.map-link:hover {
+  background: var(--gold-tint);
+  color: var(--gold-on-plate);
+}
+
+.visit-form {
+  padding: clamp(24px, 4vw, 34px);
+  color: var(--plate-ink);
+  background: var(--plate);
+  border: 1px solid var(--gold-foil);
+}
+
+.visit-form h2 {
+  font-size: clamp(1.6rem, 3.6vw, 2.1rem);
+  color: var(--plate-ink);
+}
+
+.visit-sub {
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: var(--plate-ink-soft);
+}
+
+.visit-form form {
+  margin-top: 20px;
+}
+
+/* Sentence-case labels — tracked caps here would be costume, and these get
+   read fast on a phone at the site gate. */
+.visit-form label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--plate-ink);
+}
+
+.visit-form input,
+.visit-form select {
+  width: 100%;
+  min-height: 48px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--control-edge);
+  border-radius: 2px;
+  background: #fffdf7;
+  color: var(--plate-ink);
+  transition: border-color 0.18s ease;
+}
+
+.visit-form input::placeholder {
+  color: var(--plate-ink-soft);
+  opacity: 0.75;
+}
+
+.visit-form input:focus,
+.visit-form select:focus {
+  border-color: var(--gold-on-plate);
+}
+
+.form-error {
+  margin: -6px 0 14px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.visit-call {
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: var(--plate-ink-soft);
+}
+
+.visit-call a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 4px 2px;
+  font-weight: 600;
+  color: var(--plate-ink);
+}
+
+.visit-call a:hover {
+  color: var(--gold-on-plate);
+}
+
+/* --- about the developer --------------------------------------------------- */
+
+.about {
+  padding: clamp(30px, 5vw, 54px) 0 clamp(36px, 6vw, 60px);
+  border-top: 1px solid var(--line-navy);
+}
+
+.about-plate {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(26px, 5vw, 52px);
+  padding: clamp(28px, 5vw, 48px);
+  color: var(--plate-ink);
+  background: var(--plate);
+  border: 1px solid var(--gold-foil);
+}
+
+.about-lead .kicker {
+  color: var(--gold-on-plate);
+}
+
+.about-lead h2 {
+  margin-top: 10px;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--plate-ink);
+}
+
+.about-what {
+  margin-top: 8px;
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--plate-ink-soft);
+}
+
+.about-lead .rule {
+  margin-inline: 0;
+}
+
+.about-body {
+  max-width: 62ch;
+  color: var(--plate-ink-soft);
+}
+
+.about-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-on-plate);
+}
+
+.about-values i {
+  font-style: normal;
+  margin-left: 10px;
+  opacity: 0.55;
+}
+
+.creed {
+  display: grid;
+  gap: 16px;
+}
+
+.creed dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-on-plate);
+}
+
+.creed dd {
+  margin-top: 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--plate-ink-soft);
+}
+
+.creed > div:last-child dd {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.about-projects {
+  margin-top: 24px;
+}
+
+.about-projects-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-on-plate);
+  margin-bottom: 10px;
+}
+
+.about-projects ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.about-projects li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-projects li strong {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.about-projects li span {
+  font-size: 0.82rem;
+  text-align: right;
+  color: var(--plate-ink-soft);
+}
+
+.about-office {
+  display: grid;
+  gap: 2px;
+  margin-top: 24px;
+  font-style: normal;
+  font-size: 0.88rem;
+  color: var(--plate-ink-soft);
+}
+
+.about-office a {
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--plate-ink);
+  overflow-wrap: break-word;
+}
+
+.about-office a:hover {
+  color: var(--gold-on-plate);
+}
+
+/* --- footer ---------------------------------------------------------------- */
+
+.foot {
+  padding: 30px 0 calc(30px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line-navy);
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--canvas-ink-soft);
+}
+
+.foot-logo {
+  height: 34px;
+  margin: 0 auto 16px;
+}
+
+.foot-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--canvas-ink);
+}
+
+.foot-name span {
+  color: var(--gold-on-navy);
+}
+
+.foot-line {
+  margin-top: 4px;
+}
+
+.foot-calls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.foot-calls a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--canvas-ink);
+}
+
+.foot-calls a:hover {
+  color: var(--gold-on-navy);
+}
+
+.foot-office {
+  margin-top: 10px;
+  font-size: 0.82rem;
+}
+
+.foot-office a {
+  font-weight: 600;
+  color: var(--canvas-ink);
+  overflow-wrap: break-word;
+}
+
+.foot-office a:hover {
+  color: var(--gold-on-navy);
+}
+
+.foot-fine {
+  margin-top: 8px;
+  font-size: 0.76rem;
+  opacity: 0.8;
+}
+
+/* --- mobile call bar ------------------------------------------------------- */
+
+.callbar {
+  display: none;
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 30;
+  gap: 1px;
+  background: var(--gold-foil);
+  border-top: 1px solid var(--gold-foil);
+}
+
+.callbar a {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--canvas-deep);
+  color: var(--gold-bright);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.callbar-gold {
+  background: var(--gold-foil);
+  color: #0b1f43;
+}
+
+/* --- responsive ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .visit-grid,
+  .about-plate {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visit-map iframe {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 720px) {
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fact:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .fact:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .actions .btn {
+    width: 100%;
+  }
+
+  .strip-nav {
+    display: none; /* touch drag is the natural control here */
+  }
+
+  .slide {
+    flex-basis: 78%;
+  }
+
+  .callbar {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 54px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    padding-inline: 20px;
+  }
+
+  .card::after {
+    inset: 7px;
+  }
+
+  .card-corner {
+    width: 30px;
+  }
+
+  .card-corner-tl,
+  .card-corner-tr {
+    top: 12px;
+  }
+
+  .card-corner-bl,
+  .card-corner-br {
+    bottom: 12px;
+  }
+
+  .card-corner-tl,
+  .card-corner-bl {
+    left: 12px;
+  }
+
+  .card-corner-tr,
+  .card-corner-br {
+    right: 12px;
+  }
+}
+
+/* Reduced motion keeps the intent, drops the travel. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card {
+    animation: fade-only 300ms ease-out both;
+  }
+
+  .track {
+    scroll-behavior: auto;
+  }
+
+  .dots button.is-active::after {
+    transform: none;
+    box-shadow: 0 0 0 3px var(--gold-tint);
+  }
+}
+
+@keyframes fade-only {
+  from {
+    opacity: 0;
+  }
+}

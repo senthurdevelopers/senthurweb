@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.local
+.vite
+
+# generated share files (npm run preview:file)
+preview-home.html
+preview-launch.html

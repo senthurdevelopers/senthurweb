@@ -1,0 +1,555 @@
+/* ==========================================================================
+   Home page — the corporate face, in the logo's own colours.
+   Brand navy #0B2848, brand orange #F15D21, ivory paper.
+   The launch page keeps the invitation's navy-and-gold; this is the company.
+   ========================================================================== */
+
+.home {
+  --navy: #0b2848;
+  --navy-deep: #071c33;
+  /* Brand orange is used at full strength for rules, icons and edges, where
+     3:1 is the bar. Text-bearing surfaces use the deeper tone so white type
+     clears 4.5:1 — same hue, no visible brand drift. */
+  --orange: #f15d21;
+  --orange-solid: #c2450e; /* filled buttons / chips carrying white text */
+  --orange-ink: #b8420f; /* orange text on ivory */
+  --orange-on-navy: #ff7a45; /* orange text on the navy */
+  --ivory: #fbf7f0;
+  --ivory-dim: #efe8dd;
+  --on-navy: #f6f1e8;
+  --on-navy-soft: rgba(246, 241, 232, 0.76);
+  --on-ivory: #0b2848;
+  --on-ivory-soft: #4a5a72;
+  --hairline: rgba(11, 40, 72, 0.16);
+  --hairline-navy: rgba(246, 241, 232, 0.18);
+}
+
+.home {
+  background: var(--ivory);
+  color: var(--on-ivory);
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 38px;
+}
+
+/* --- masthead -------------------------------------------------------------- */
+
+.home-head {
+  background: var(--navy);
+  border-bottom: 3px solid var(--orange);
+}
+
+.home-head-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 14px;
+}
+
+.home-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--on-navy);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.home-nav a:hover {
+  color: var(--orange);
+}
+
+.home-nav-cta {
+  background: var(--orange-solid);
+  color: #fff !important;
+  border-radius: 2px;
+  font-weight: 600 !important;
+}
+
+.home-nav-cta:hover {
+  background: #a93a0a;
+}
+
+/* --- buttons --------------------------------------------------------------- */
+
+.hbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  padding: 14px 26px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.hbtn-orange {
+  background: var(--orange-solid);
+  color: #fff;
+}
+
+.hbtn-orange:hover {
+  background: #a93a0a;
+}
+
+.hbtn-line {
+  border-color: currentColor;
+  background: transparent;
+}
+
+.hbtn-line:hover {
+  background: rgba(241, 93, 33, 0.1);
+  border-color: var(--orange);
+}
+
+.hbtn-block {
+  width: 100%;
+}
+
+/* --- hero ------------------------------------------------------------------ */
+
+.home-hero {
+  position: relative;
+  padding: clamp(56px, 11vw, 120px) 0 clamp(52px, 10vw, 104px);
+  color: var(--on-navy);
+  background: var(--navy);
+  /* a single angled orange plane, echoing the hexagon's cut faces */
+  background-image: linear-gradient(
+    118deg,
+    var(--navy) 0%,
+    var(--navy) 58%,
+    #10375f 58%,
+    #10375f 74%,
+    var(--navy-deep) 74%
+  );
+}
+
+.home-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--orange-on-navy);
+}
+
+.home-eyebrow-ink {
+  color: var(--orange-ink);
+}
+
+.home-hero h1 {
+  max-width: 16ch;
+  margin: 16px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(2.3rem, 6.4vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+  color: var(--on-navy);
+}
+
+.home-lead {
+  max-width: 46ch;
+  margin-top: 18px;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--on-navy-soft);
+}
+
+.home-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.home-hero .hbtn-line {
+  color: var(--on-navy);
+  border-color: rgba(246, 241, 232, 0.5);
+}
+
+/* --- launch strip ---------------------------------------------------------- */
+
+.home-launch {
+  background: var(--ivory-dim);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.home-launch-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: clamp(24px, 4vw, 36px);
+}
+
+.home-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 5px 11px;
+  background: var(--orange-solid);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.home-launch h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  color: var(--on-ivory);
+}
+
+.home-launch p {
+  max-width: 56ch;
+  margin-top: 6px;
+  color: var(--on-ivory-soft);
+}
+
+.home-launch .hbtn {
+  flex: none;
+}
+
+/* --- about ----------------------------------------------------------------- */
+
+.home-about {
+  padding: clamp(48px, 8vw, 88px) 0;
+}
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.home-about h2,
+.home-projects h2,
+.home-standards h2,
+.home-contact h2 {
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.8vw, 2.5rem);
+  font-weight: 700;
+}
+
+.home-about-body {
+  max-width: 62ch;
+  margin-top: 16px;
+  color: var(--on-ivory-soft);
+}
+
+.home-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.home-values span {
+  padding: 7px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+
+.home-creed {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 3px solid var(--orange);
+}
+
+.home-creed > div {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.home-creed dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange-ink);
+}
+
+.home-creed dd {
+  margin: 6px 0 0;
+  color: var(--on-ivory-soft);
+}
+
+/* --- standards ------------------------------------------------------------- */
+
+.home-standards {
+  padding: clamp(40px, 7vw, 72px) 0;
+  color: var(--on-navy);
+  background: var(--navy);
+}
+
+.home-standards h2 {
+  color: var(--on-navy);
+}
+
+.home-standards-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline-navy);
+}
+
+.home-standards-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 18px 18px 0;
+  border-bottom: 1px solid var(--hairline-navy);
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.home-standards-list svg {
+  flex: none;
+  color: var(--orange);
+}
+
+/* --- projects -------------------------------------------------------------- */
+
+.home-projects {
+  padding: clamp(48px, 8vw, 88px) 0;
+}
+
+.home-project-list {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.home-project-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.home-project-place {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 700;
+}
+
+.home-project-note {
+  text-align: right;
+  font-size: 0.92rem;
+  color: var(--on-ivory-soft);
+}
+
+/* --- contact --------------------------------------------------------------- */
+
+.home-contact {
+  padding: clamp(48px, 8vw, 88px) 0;
+  color: var(--on-navy);
+  background: var(--navy);
+}
+
+.home-contact h2 {
+  color: var(--on-navy);
+}
+
+.home-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: start;
+}
+
+.home-office {
+  display: grid;
+  gap: 2px;
+  margin-top: 18px;
+  font-style: normal;
+  font-size: 1.02rem;
+  color: var(--on-navy-soft);
+}
+
+.home-office-mail {
+  margin-top: 14px;
+}
+
+.home-office-mail a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--on-navy);
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  box-shadow: inset 0 -1px 0 var(--orange);
+}
+
+.home-office-mail a:hover {
+  color: var(--orange);
+}
+
+.home-contact-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.home-tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 18px;
+  border: 1px solid var(--hairline-navy);
+  border-radius: 2px;
+  color: var(--on-navy);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.home-tel:hover {
+  border-color: var(--orange);
+  background: rgba(241, 93, 33, 0.12);
+}
+
+.home-tel svg {
+  color: var(--orange);
+}
+
+/* --- footer ---------------------------------------------------------------- */
+
+.home-foot {
+  padding: 34px 0 40px;
+  text-align: center;
+  color: var(--on-navy-soft);
+  background: var(--navy-deep);
+  border-top: 3px solid var(--orange);
+}
+
+.home-foot-logo {
+  height: 34px;
+  margin: 0 auto 14px;
+}
+
+.home-foot p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.home-foot-fine {
+  margin-top: 8px !important;
+  font-size: 0.78rem !important;
+  opacity: 0.8;
+}
+
+/* --- responsive ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  .home-about-grid,
+  .home-contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-standards-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-launch-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .brand-logo {
+    height: 30px;
+  }
+
+  .home-head-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .home-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .home-nav a {
+    padding: 0 10px;
+  }
+
+  .home-nav-cta {
+    margin-left: auto;
+  }
+
+  .home-hero {
+    background-image: linear-gradient(
+      165deg,
+      var(--navy) 0%,
+      var(--navy) 64%,
+      #10375f 64%,
+      var(--navy-deep) 100%
+    );
+  }
+
+  .home-cta .hbtn,
+  .home-launch .hbtn {
+    width: 100%;
+  }
+
+  .home-standards-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-project-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .home-project-note {
+    text-align: left;
+  }
+}
