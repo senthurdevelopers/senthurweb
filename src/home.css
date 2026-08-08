@@ -139,16 +139,29 @@
   position: relative;
   padding: clamp(56px, 11vw, 120px) 0 clamp(52px, 10vw, 104px);
   color: var(--on-navy);
-  background: var(--navy);
-  /* a single angled orange plane, echoing the hexagon's cut faces */
-  background-image: linear-gradient(
-    118deg,
-    var(--navy) 0%,
-    var(--navy) 58%,
-    #10375f 58%,
-    #10375f 74%,
-    var(--navy-deep) 74%
+  overflow: hidden;
+  background: radial-gradient(
+    110% 120% at 18% 0%,
+    #10375f 0%,
+    var(--navy) 48%,
+    var(--navy-deep) 100%
   );
+}
+
+/* the brand hexagon, oversized and bleeding off the right edge */
+.hero-hex {
+  position: absolute;
+  top: 50%;
+  right: clamp(-200px, -12vw, -80px);
+  width: clamp(380px, 46vw, 640px);
+  height: auto;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.home-hero .wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .home-eyebrow {
@@ -195,9 +208,21 @@
 
 /* --- launch strip ---------------------------------------------------------- */
 
+/* the bridge to the invitation: a navy band with gold keylines, so the
+   launch reads as its own object between the ivory sections */
 .home-launch {
-  background: var(--ivory-dim);
-  border-bottom: 1px solid var(--hairline);
+  color: var(--on-navy);
+  background: var(--navy);
+  border-top: 2px solid #c9a227;
+  border-bottom: 2px solid #c9a227;
+}
+
+.home-launch h2 {
+  color: var(--on-navy);
+}
+
+.home-launch > .home-launch-inner p {
+  color: var(--on-navy-soft);
 }
 
 .home-launch-inner {
@@ -224,13 +249,11 @@
 .home-launch h2 {
   font-family: var(--serif);
   font-size: clamp(1.4rem, 3.2vw, 2rem);
-  color: var(--on-ivory);
 }
 
 .home-launch p {
   max-width: 56ch;
   margin-top: 6px;
-  color: var(--on-ivory-soft);
 }
 
 .home-launch .hbtn {
@@ -359,6 +382,10 @@
   border-top: 1px solid var(--hairline);
 }
 
+.home-project-list {
+  counter-reset: proj;
+}
+
 .home-project-list li {
   display: flex;
   align-items: baseline;
@@ -366,12 +393,24 @@
   gap: 20px;
   padding: 22px 0;
   border-bottom: 1px solid var(--hairline);
+  counter-increment: proj;
 }
 
 .home-project-place {
   font-family: var(--serif);
   font-size: clamp(1.5rem, 3.4vw, 2.1rem);
   font-weight: 700;
+}
+
+.home-project-place::before {
+  content: counter(proj, decimal-leading-zero);
+  margin-right: 16px;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--orange-ink);
+  vertical-align: 0.35em;
 }
 
 .home-project-note {

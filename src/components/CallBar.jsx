@@ -1,4 +1,5 @@
-import { contacts, project, whatsappUrl } from '../data.js'
+import { contacts, project } from '../data.js'
+import { whatsappUrl } from '../whatsapp.js'
 import { IconPhone, IconWhatsapp } from './Icons.jsx'
 
 // Mobile-only: most launch traffic arrives on a phone.

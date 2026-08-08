@@ -204,36 +204,17 @@ select {
   height: 36px;
 }
 
-.masthead-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.masthead-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 44px;
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--canvas-ink-soft);
-}
-
-.masthead-back:hover {
-  color: var(--gold-on-navy);
-}
-
 .masthead-call {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  flex: none;
   min-height: 44px;
   padding: 8px 4px;
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  white-space: nowrap;
   color: var(--canvas-ink);
 }
 
@@ -272,33 +253,41 @@ select {
 
 .card-corner {
   position: absolute;
-  width: clamp(34px, 6vw, 52px);
+  width: clamp(64px, 11vw, 104px);
   height: auto;
-  color: var(--gold-foil);
+  --blossom: #2b4470;
   pointer-events: none;
 }
 
 .card-corner-tl {
-  top: 16px;
-  left: 16px;
+  top: 14px;
+  left: 14px;
 }
 
 .card-corner-tr {
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   transform: scaleX(-1);
 }
 
 .card-corner-bl {
-  bottom: 16px;
-  left: 16px;
+  bottom: 14px;
+  left: 14px;
   transform: scaleY(-1);
 }
 
 .card-corner-br {
-  bottom: 16px;
-  right: 16px;
+  bottom: 14px;
+  right: 14px;
   transform: scale(-1);
+}
+
+/* the enclave gate at dusk, under the invitation */
+.gate-scene {
+  display: block;
+  width: min(920px, 100%);
+  height: auto;
+  margin: clamp(18px, 4vw, 34px) auto 0;
 }
 
 @keyframes settle {
@@ -353,14 +342,22 @@ select {
   border-radius: 4px;
 }
 
+/* gold band with swallowtail ribbon ends, overlapping the cartouche */
 .ribbon {
   display: inline-block;
-  margin-top: -10px;
-  padding: 9px 22px;
+  margin-top: -12px;
+  padding: 10px 34px;
   position: relative;
   background: var(--gold-foil);
   color: #0b1f43;
-  border-radius: 2px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    calc(100% - 12px) 50%,
+    100% 100%,
+    0 100%,
+    12px 50%
+  );
 }
 
 .lede {
@@ -429,7 +426,66 @@ select {
   margin-top: 2px;
 }
 
-.countdown {
+/* the countdown — engraved gold numerals between hairlines */
+.countdown-frame {
+  max-width: 380px;
+  margin: 24px auto 0;
+  padding: 14px 0 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.countdown-caption {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.countdown-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(18px, 5vw, 34px);
+  margin-top: 8px;
+}
+
+.cd-unit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 58px;
+}
+
+.cd-value {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold-on-plate);
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-label {
+  margin-top: 5px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plate-ink-soft);
+}
+
+.cd-sep {
+  position: absolute;
+  right: clamp(-22px, -3vw, -12px);
+  top: 4px;
+  font-size: 1.4rem;
+  color: var(--gold-foil);
+  opacity: 0.6;
+}
+
+.countdown-live {
   margin-top: 20px;
   font-size: 0.95rem;
   font-weight: 500;
@@ -463,6 +519,15 @@ select {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 20px;
+}
+
+.strip-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-on-navy);
+  margin-bottom: 6px;
 }
 
 .strip-head h2 {
@@ -594,23 +659,27 @@ select {
   border-top: 1px solid var(--line-navy);
 }
 
+/* one ivory plate holding both the map and the form, split by a hairline —
+   the launch page's second "card" moment rather than two loose panels */
 .visit-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 26px;
-  align-items: start;
+  align-items: stretch;
+  background: var(--plate);
+  border: 2px solid var(--gold-foil);
 }
 
 .visit-map {
   position: relative;
-  background: var(--plate);
-  border: 1px solid var(--gold-foil);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
 }
 
 .visit-map iframe {
   display: block;
+  flex: 1;
   width: 100%;
-  height: 100%;
   min-height: 380px;
   filter: saturate(0.9);
 }
@@ -636,8 +705,6 @@ select {
 .visit-form {
   padding: clamp(24px, 4vw, 34px);
   color: var(--plate-ink);
-  background: var(--plate);
-  border: 1px solid var(--gold-foil);
 }
 
 .visit-form h2 {
@@ -976,6 +1043,11 @@ select {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .visit-map {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
   .visit-map iframe {
     min-height: 300px;
   }
@@ -1025,7 +1097,7 @@ select {
   }
 
   .card-corner {
-    width: 30px;
+    width: 38px;
   }
 
   .card-corner-tl,

@@ -1,11 +1,11 @@
 import { project, event, location, contacts, directionsUrl } from '../data.js'
-import { IconPhone, IconPin, Rule, Corner } from './Icons.jsx'
+import { IconPhone, IconPin, Rule, Corner, GateScene } from './Icons.jsx'
 import Countdown from './Countdown.jsx'
 
 const facts = [
   { label: 'Date', value: event.dateLabel, note: event.dayLabel },
   { label: 'Time', value: event.timeLabel, note: event.timeNote },
-  { label: 'Venue', value: 'Kalangal, Sulur', note: 'Coimbatore – 641 402' },
+  { label: 'Venue', value: 'Kalangal, Sulur', note: 'Coimbatore 641 402' },
   { label: 'Hospitality', value: 'Lunch', note: 'For every guest' },
 ]
 
@@ -70,6 +70,8 @@ export default function Invitation() {
             {location.line1} {location.line2} {location.line3}
           </p>
         </article>
+
+        <GateScene />
       </div>
     </section>
   )

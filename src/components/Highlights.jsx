@@ -79,7 +79,10 @@ export default function Highlights() {
   return (
     <section className="strip" id="highlights" aria-labelledby="highlights-title">
       <div className="wrap strip-head">
-        <h2 id="highlights-title">What the layout gives you</h2>
+        <div>
+          <p className="strip-kicker">The layout</p>
+          <h2 id="highlights-title">What the layout gives you</h2>
+        </div>
         <div className="strip-nav">
           <button
             type="button"

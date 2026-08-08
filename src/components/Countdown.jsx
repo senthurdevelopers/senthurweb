@@ -14,7 +14,10 @@ function remaining() {
   }
 }
 
-// Deliberately a single quiet line, not a dashboard of flip-cards.
+const pad = (n) => String(n).padStart(2, '0')
+
+// The countdown is the launch-est thing on the page — engraved gold numerals
+// between hairlines, like a date line on the printed card.
 export default function Countdown() {
   const [left, setLeft] = useState(remaining)
 
@@ -24,14 +27,35 @@ export default function Countdown() {
   }, [])
 
   if (!left) {
-    return <p className="countdown">The launch is on — we are at the site today.</p>
+    return (
+      <p className="countdown countdown-live">
+        The launch is on. We are at the site today.
+      </p>
+    )
   }
 
-  const parts = [
-    left.days ? `${left.days} ${left.days === 1 ? 'day' : 'days'}` : null,
-    left.days || left.hours ? `${left.hours} hrs` : null,
-    `${left.minutes} min`,
-  ].filter(Boolean)
+  const units = [
+    { value: left.days, label: left.days === 1 ? 'Day' : 'Days' },
+    { value: left.hours, label: 'Hours' },
+    { value: left.minutes, label: 'Minutes' },
+  ]
 
-  return <p className="countdown">Opens in {parts.join(' · ')}</p>
+  return (
+    <div className="countdown-frame" role="timer" aria-live="off">
+      <p className="countdown-caption">Gates open in</p>
+      <div className="countdown-row">
+        {units.map((u, i) => (
+          <div className="cd-unit" key={u.label}>
+            <span className="cd-value">{pad(u.value)}</span>
+            <span className="cd-label">{u.label}</span>
+            {i < units.length - 1 && (
+              <span className="cd-sep" aria-hidden="true">
+                ·
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }

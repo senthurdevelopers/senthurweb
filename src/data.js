@@ -29,7 +29,7 @@ export const event = {
 export const location = {
   line1: 'Senthur Krishna Enclave,',
   line2: 'Kalangal, Sulur,',
-  line3: 'Coimbatore – 641 402.',
+  line3: 'Coimbatore 641 402.',
   query: 'Senthur Krishna Enclave, Kalangal, Sulur, Coimbatore 641402',
 }
 
@@ -84,7 +84,7 @@ export const office = {
   lines: [
     'No. 16, 2nd Floor,',
     'Bharathi Colony Main Road,',
-    'Peelamedu, Coimbatore – 641 004.',
+    'Peelamedu, Coimbatore 641 004.',
   ],
   email: 'office@senthurdevelopers.com',
 }
@@ -93,25 +93,24 @@ export const company = {
   since: '2018',
   what: 'Land aggregators, promoters and developers.',
   about:
-    'Senthur Developers has worked across Coimbatore since 2018, taking land from acquisition through approval to a layout a family can build on. We prioritise quality, timely delivery and customer satisfaction, and keep innovating on how we do it — building on our record in both residential development and commercial property.',
+    'Senthur Developers has worked across Coimbatore since 2018, taking land from acquisition through approval to a layout a family can build on. We prioritise quality, timely delivery and customer satisfaction, and keep innovating on how we do it, building on our record in both residential development and commercial property.',
   vision:
     "To make every person's dream of owning land a reality, in a safe and healthy environment.",
   mission:
     'To help families thrive by providing safe, accessible and affordable plots.',
   purpose:
-    'To delight customers at every step — constant updates, and a process kept as transparent as possible.',
+    'To delight customers at every step, with constant updates and a process kept as transparent as possible.',
   values: ['Innovation', 'Affordability', 'Passion', 'Growth', 'Fairness'],
   projects: [
     { place: 'Arasur', note: 'Delivered' },
-    { place: 'Sulur', note: 'Current — Senthur Krishna Enclave' },
+    { place: 'Sulur', note: 'Current · Senthur Krishna Enclave' },
     { place: 'Erode', note: 'Delivered' },
   ],
 }
 
+// Every enquiry on the site is delivered here. Change this one value to move
+// all forms and WhatsApp buttons to a different number.
 export const whatsappNumber = '919500195480'
-
-export const whatsappUrl = (message) =>
-  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
 
 export const homeNav = [
   { label: 'About', href: '#about' },

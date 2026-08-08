@@ -6,11 +6,11 @@ import {
   contacts,
   mapEmbedUrl,
   directionsUrl,
-  whatsappUrl,
 } from '../data.js'
+import { openWhatsApp, enquiryMessage } from '../whatsapp.js'
 import { IconPhone, IconWhatsapp, IconPin } from './Icons.jsx'
 
-const slots = ['10:00 – 11:30 AM', '11:30 AM – 1:00 PM', 'After lunch, 2:00 PM onwards']
+const slots = ['10:00 to 11:30 AM', '11:30 AM to 1:00 PM', 'After lunch, 2:00 PM onwards']
 
 export default function Visit() {
   const [form, setForm] = useState({ name: '', phone: '', slot: slots[0] })
@@ -21,8 +21,8 @@ export default function Visit() {
     if (error) setError('')
   }
 
-  // No backend here — the slot request opens a pre-filled WhatsApp chat
-  // to the sales number so nothing is lost on launch day.
+  // No backend — the slot request opens a pre-filled WhatsApp chat to the
+  // sales number so nothing is lost on launch day.
   const submit = (e) => {
     e.preventDefault()
     const name = form.name.trim()
@@ -32,14 +32,15 @@ export default function Visit() {
     if (phone.replace(/\D/g, '').length < 10)
       return setError('Please enter a valid 10-digit mobile number.')
 
-    const text = [
-      `Hello ${project.developer}, I'd like a launch-day slot at ${project.name}.`,
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Preferred slot on ${event.dateLabel}: ${form.slot}`,
-    ].join('\n')
-
-    window.open(whatsappUrl(text), '_blank', 'noopener,noreferrer')
+    openWhatsApp(
+      enquiryMessage({
+        developer: project.developer,
+        project: project.name,
+        name,
+        phone,
+        lines: [`Preferred slot on ${event.dateLabel}: ${form.slot}`],
+      }),
+    )
   }
 
   return (
@@ -67,7 +68,7 @@ export default function Visit() {
         <div className="visit-form">
           <h2 id="visit-title">Reserve a launch-day slot</h2>
           <p className="visit-sub">
-            {location.line2} {location.line3} — tell us when you'll come and we'll
+            {location.line2} {location.line3} Tell us when you'll come and we'll
             keep the plot details ready.
           </p>
 

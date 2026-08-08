@@ -8,8 +8,8 @@ import {
   homeNav,
   amenities,
   directionsUrl,
-  whatsappUrl,
 } from '../data.js'
+import { whatsappUrl } from '../whatsapp.js'
 import Brand from '../components/Brand.jsx'
 import { iconMap, IconPhone, IconPin, IconArrow, IconWhatsapp } from '../components/Icons.jsx'
 
@@ -41,13 +41,42 @@ export default function HomePage() {
       <main id="top">
         {/* hero */}
         <section className="home-hero">
+          {/* the logo's hexagon, opened up as hero geometry */}
+          <svg
+            className="hero-hex"
+            viewBox="0 0 560 560"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M280 40l208 120v240L280 520 72 400V160L280 40z"
+              stroke="rgba(246,241,232,0.14)"
+              strokeWidth="2"
+            />
+            <path
+              d="M280 110l147 85v170l-147 85-147-85V195l147-85z"
+              stroke="rgba(246,241,232,0.1)"
+              strokeWidth="1.5"
+            />
+            {/* one orange facet, like the mark's lit face */}
+            <path
+              d="M280 40l208 120-208 120V40z"
+              fill="rgba(241,93,33,0.14)"
+            />
+            <path
+              d="M280 40l208 120-208 120"
+              stroke="rgba(241,93,33,0.55)"
+              strokeWidth="2"
+            />
+          </svg>
+
           <div className="wrap">
             <p className="home-eyebrow">Coimbatore · Since {company.since}</p>
             <h1>{project.tagline}</h1>
             <p className="home-lead">{company.what}</p>
             <div className="home-cta">
               <a className="hbtn hbtn-orange" href="/launch/">
-                Grand Launch — {event.dateLabel}
+                Grand Launch · {event.dateLabel}
                 <IconArrow width="17" height="17" aria-hidden="true" />
               </a>
               <a className="hbtn hbtn-line" href={`tel:${contacts[0].tel}`}>
@@ -65,8 +94,8 @@ export default function HomePage() {
               <span className="home-tag">Open now</span>
               <h2 id="home-launch-title">{project.name}</h2>
               <p>
-                {project.badge} at {location.line2.replace(/,$/, '')} — plots open for
-                booking, with launch-day offers on {event.dateLabel}.
+                {project.badge} at {location.line2.replace(/,$/, '')}. Plots open
+                for booking, with launch-day offers on {event.dateLabel}.
               </p>
             </div>
             <a className="hbtn hbtn-orange" href="/launch/">

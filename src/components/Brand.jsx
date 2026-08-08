@@ -9,7 +9,7 @@ export default function Brand({ light = false, href = '/', className = '' }) {
     <img
       className={`brand-logo ${className}`}
       src={src}
-      alt={`${project.legal} — ${project.tagline}`}
+      alt={`${project.legal}, ${project.tagline}`}
       width="1400"
       height="432"
     />

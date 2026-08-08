@@ -108,36 +108,131 @@ export const iconMap = {
   doc: IconDoc,
 }
 
-// Gold corner filigree, echoing the printed card's engraved corners.
+// Floral corner spray, echoing the printed card's engraved corners:
+// a curled gold stem with leaves, one navy blossom with a gold heart, buds.
 // Drawn once and mirrored with CSS transforms for the other three corners.
 export const Corner = ({ className = '' }) => (
   <svg
     className={`card-corner ${className}`}
-    viewBox="0 0 64 64"
+    viewBox="0 0 120 120"
     fill="none"
     aria-hidden="true"
   >
+    {/* corner keylines */}
     <path
-      d="M2 30V6a4 4 0 014-4h24"
-      stroke="currentColor"
-      strokeWidth="1.6"
+      d="M4 62V12a8 8 0 018-8h50"
+      stroke="var(--gold-foil)"
+      strokeWidth="2"
       strokeLinecap="round"
     />
     <path
-      d="M8 34V12a4 4 0 014-4h22"
-      stroke="currentColor"
+      d="M12 70V20a8 8 0 018-8h50"
+      stroke="var(--gold-foil)"
       strokeWidth="0.9"
       strokeLinecap="round"
-      opacity="0.75"
+      opacity="0.6"
     />
+    {/* main stem curling out of the corner */}
     <path
-      d="M14 22c6.5 0 11-3.5 11-9M14 22c0-6 4-10 10-10"
-      stroke="currentColor"
-      strokeWidth="1.1"
+      d="M22 22c14 2 24 10 28 22 3 9 1 18-5 24"
+      stroke="var(--gold-foil)"
+      strokeWidth="1.4"
       strokeLinecap="round"
     />
-    <circle cx="25" cy="13" r="1.6" fill="currentColor" />
-    <circle cx="13" cy="25" r="1.6" fill="currentColor" />
+    <path
+      d="M22 22c2 14 10 24 22 28 9 3 18 1 24-5"
+      stroke="var(--gold-foil)"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+    />
+    {/* leaves along the stems */}
+    <path
+      d="M34 27c4-4 10-5 14-2-1 5-6 9-11 8-2-.4-3-4-3-6z"
+      fill="var(--gold-foil)"
+      opacity="0.85"
+    />
+    <path
+      d="M27 34c-4 4-5 10-2 14 5-1 9-6 8-11-.4-2-4-3-6-3z"
+      fill="var(--gold-foil)"
+      opacity="0.85"
+    />
+    <path
+      d="M52 52c5-1 9 1 11 5-3 3-8 3-11 0-1.4-1.4-1-4 0-5z"
+      fill="var(--gold-foil)"
+      opacity="0.7"
+    />
+    {/* navy blossom with gold heart */}
+    <g transform="translate(46 46)">
+      <path
+        d="M0-11c3 0 5 2.5 5 5.5 3-1 6 .5 7 3.4 1 3-.6 6-3.4 7 1.8 2.4 1.4 5.8-1 7.6-2.4 1.8-5.8 1.2-7.6-1-1.8 2.2-5.2 2.8-7.6 1-2.4-1.8-2.8-5.2-1-7.6-2.8-1-4.4-4-3.4-7 1-2.9 4-4.4 7-3.4 0-3 2-5.5 5-5.5z"
+        fill="var(--blossom, #2b4470)"
+      />
+      <circle r="3.2" fill="var(--gold-bright)" />
+    </g>
+    {/* buds and dots trailing off */}
+    <circle cx="62" cy="30" r="2.2" fill="var(--gold-foil)" opacity="0.8" />
+    <circle cx="30" cy="62" r="2.2" fill="var(--gold-foil)" opacity="0.8" />
+    <circle cx="72" cy="22" r="1.3" fill="var(--gold-foil)" opacity="0.55" />
+    <circle cx="22" cy="72" r="1.3" fill="var(--gold-foil)" opacity="0.55" />
+  </svg>
+)
+
+// The enclave gate at dusk, drawn in gold line on the navy canvas — the web
+// counterpart of the printed invite's illustrated gateway. Pillars, arch,
+// wrought gates, lamps and palms; wide and shallow so it sits under the card.
+export const GateScene = () => (
+  <svg
+    className="gate-scene"
+    viewBox="0 0 1200 230"
+    fill="none"
+    aria-hidden="true"
+    preserveAspectRatio="xMidYMax meet"
+  >
+    <g stroke="var(--gold-foil)" strokeWidth="1.6" strokeLinecap="round">
+      {/* ground */}
+      <path d="M40 214h1120" opacity="0.5" />
+      <path d="M140 222h920" opacity="0.25" />
+      {/* left pillar */}
+      <path d="M420 214V96h56v118M420 96h-8v-12h72v12h-8M436 110h24M436 124h24" />
+      <path d="M430 214v-88M502 214v-88" opacity="0.4" />
+      {/* right pillar */}
+      <path d="M724 214V96h56v118M716 96h-8v-12h72v12h-8M740 110h24M740 124h24" />
+      {/* arch between pillars */}
+      <path d="M476 84c40-44 208-44 248 0" />
+      <path d="M476 74c40-44 208-44 248 0" opacity="0.5" />
+      {/* nameplate on the arch */}
+      <rect x="524" y="44" width="152" height="26" rx="3" />
+      {/* gates — verticals with a centre split and scroll tops */}
+      <path d="M488 214v-92M512 214v-96M536 214v-99M560 214v-101M584 214v-102" opacity="0.75" />
+      <path d="M616 214v-102M640 214v-101M664 214v-99M688 214v-96M712 214v-92" opacity="0.75" />
+      <path d="M488 140h112M616 140h112M488 176h112M616 176h112" opacity="0.55" />
+      <path d="M598 214V108" />
+      {/* lamps on the pillars */}
+      <path d="M448 84v-16M776 84v-16" />
+      <path d="M440 62h16l-2-14h-12l-2 14zM768 62h16l-2-14h-12l-2 14z" />
+      {/* palms flanking */}
+      <path d="M300 214c4-40 2-72-6-96M294 118c-16-10-36-12-52-6M294 118c-4-18-14-32-28-40M294 118c8-16 22-26 38-28M294 118c16-4 34 0 46 10" />
+      <path d="M900 214c-4-40-2-72 6-96M906 118c16-10 36-12 52-6M906 118c4-18 14-32 28-40M906 118c-8-16-22-26-38-28M906 118c-16-4-34 0-46 10" />
+      {/* low shrubs */}
+      <path d="M360 214c0-12 10-22 24-22s24 10 24 22M792 214c0-12 10-22 24-22s24 10 24 22" opacity="0.6" />
+    </g>
+    {/* lamp glow */}
+    <circle cx="448" cy="55" r="7" fill="var(--gold-bright)" opacity="0.9" />
+    <circle cx="776" cy="55" r="7" fill="var(--gold-bright)" opacity="0.9" />
+    <circle cx="448" cy="55" r="16" fill="var(--gold-bright)" opacity="0.16" />
+    <circle cx="776" cy="55" r="16" fill="var(--gold-bright)" opacity="0.16" />
+    {/* nameplate lettering */}
+    <text
+      x="600"
+      y="61"
+      textAnchor="middle"
+      fontFamily="Cinzel, serif"
+      fontSize="12"
+      letterSpacing="2.5"
+      fill="var(--gold-bright)"
+    >
+      SENTHUR KRISHNA
+    </text>
   </svg>
 )
 
