@@ -110,7 +110,7 @@ export default function Highlights() {
             <article className="slide" key={a.title}>
               <div className="slide-head">
                 <span className="slide-icon">
-                  <Icon width="22" height="22" aria-hidden="true" />
+                  <Icon width="26" height="26" aria-hidden="true" />
                 </span>
                 <h3>{a.title}</h3>
               </div>
