@@ -71,15 +71,22 @@ export default function HomePage() {
           </svg>
 
           <div className="wrap">
-            <p className="home-eyebrow">Coimbatore · Since {company.since}</p>
-            <h1>{project.tagline}</h1>
-            <p className="home-lead">{company.what}</p>
+            <p className="home-eyebrow">Building trust · Creating values</p>
+            <h1>
+              Land worth building
+              <br />
+              your life on.
+            </h1>
+            <p className="home-lead">
+              DTCP approved plots across Coimbatore. Land aggregators, promoters
+              and developers since {company.since}.
+            </p>
             <div className="home-cta">
               <a className="hbtn hbtn-orange" href="/launch/">
                 Grand Launch · {event.dateLabel}
                 <IconArrow width="17" height="17" aria-hidden="true" />
               </a>
-              <a className="hbtn hbtn-line" href={`tel:${contacts[0].tel}`}>
+              <a className="hbtn hbtn-glass" href={`tel:${contacts[0].tel}`}>
                 <IconPhone width="17" height="17" aria-hidden="true" />
                 {contacts[0].display}
               </a>

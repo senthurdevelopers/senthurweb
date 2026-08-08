@@ -43,9 +43,30 @@
 
 /* --- masthead -------------------------------------------------------------- */
 
+/* frosted sticky masthead */
 .home-head {
-  background: var(--navy);
-  border-bottom: 3px solid var(--orange);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(11, 40, 72, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(246, 241, 232, 0.14);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .home-head {
+    background: var(--navy);
+  }
+}
+
+/* shared frosted panel */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
 }
 
 .home-head-inner {
@@ -100,7 +121,7 @@
   min-height: 50px;
   padding: 14px 26px;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 12px;
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -127,6 +148,20 @@
 .hbtn-line:hover {
   background: rgba(241, 93, 33, 0.1);
   border-color: var(--orange);
+}
+
+/* frosted secondary button, for navy surfaces */
+.hbtn-glass {
+  color: var(--on-navy);
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-color: rgba(246, 241, 232, 0.22);
+}
+
+.hbtn-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(246, 241, 232, 0.4);
 }
 
 .hbtn-block {
@@ -176,14 +211,15 @@
   color: var(--orange-ink);
 }
 
+/* modern sans headline; Cinzel stays on the launch invitation */
 .home-hero h1 {
-  max-width: 16ch;
+  max-width: 18ch;
   margin: 16px 0 0;
-  font-family: var(--serif);
-  font-size: clamp(2.3rem, 6.4vw, 4.2rem);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -0.005em;
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 6.6vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   color: var(--on-navy);
 }
 
@@ -208,13 +244,34 @@
 
 /* --- launch strip ---------------------------------------------------------- */
 
-/* the bridge to the invitation: a navy band with gold keylines, so the
-   launch reads as its own object between the ivory sections */
+/* the bridge to the invitation: a navy band with gold keylines; the content
+   sits on a frosted panel over faint hexagon geometry */
 .home-launch {
+  position: relative;
   color: var(--on-navy);
   background: var(--navy);
   border-top: 2px solid #c9a227;
   border-bottom: 2px solid #c9a227;
+  overflow: hidden;
+}
+
+.home-launch::before {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -80px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(
+    circle,
+    rgba(241, 93, 33, 0.28) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.home-launch-inner {
+  position: relative;
 }
 
 .home-launch h2 {
@@ -230,7 +287,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding-block: clamp(24px, 4vw, 36px);
+  margin-block: clamp(22px, 4vw, 34px);
+  padding: clamp(20px, 3.5vw, 30px) clamp(20px, 3.5vw, 32px);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(246, 241, 232, 0.16);
+  border-radius: 16px;
 }
 
 .home-tag {
@@ -541,27 +604,18 @@
 
 @media (max-width: 680px) {
   .brand-logo {
-    height: 30px;
+    height: 28px;
   }
 
-  .home-head-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .home-nav {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .home-nav a {
-    padding: 0 10px;
+  /* one clean row: logo + Grand Launch. Text links live in the page itself. */
+  .home-nav a:not(.home-nav-cta) {
+    display: none;
   }
 
   .home-nav-cta {
-    margin-left: auto;
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 0.85rem;
   }
 
   .home-hero {
