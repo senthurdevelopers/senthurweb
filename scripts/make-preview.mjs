@@ -17,7 +17,8 @@ const read = (f) => fs.readFileSync(f, 'utf8')
 
 const dataUri = (file) => {
   const buf = fs.readFileSync(path.join(dist, file))
-  return `data:image/png;base64,${buf.toString('base64')}`
+  const mime = file.endsWith('.jpg') ? 'image/jpeg' : 'image/png'
+  return `data:${mime};base64,${buf.toString('base64')}`
 }
 
 /**
@@ -26,7 +27,7 @@ const dataUri = (file) => {
  * script lives inside the HTML. Resolve each chunk to a base64 module URL,
  * depth-first, so the whole graph travels in the one file.
  */
-const IMAGES = ['senthur-logo.png', 'senthur-mark.png', 'layout-map.png']
+const IMAGES = ['senthur-logo.png', 'senthur-mark.png', 'layout-map.jpg']
 const inlineImages = (text) => {
   for (const img of IMAGES) text = text.split(`/${img}`).join(dataUri(img))
   return text

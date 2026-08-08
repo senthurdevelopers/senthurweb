@@ -39,8 +39,8 @@ export const offers = [
 
 // The approved layout, from the plot map flyer.
 export const layout = {
-  image: '/layout-map.png',
-  alt: 'Approved plot layout of Senthur Krishna Enclave: 61 numbered plots along black top roads, with a park at the north east corner',
+  image: '/layout-map.jpg',
+  alt: 'Senthur Krishna Enclave approved layout flyer: plot map of 61 numbered plots along black top roads with a park, plus the area details table listing each plot size',
   facts: [
     '61 plots, 1 to 4 cents',
     'Park inside the layout',

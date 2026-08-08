@@ -8,8 +8,8 @@ export default function Brand({ href = '/', className = '' }) {
       className={`brand-logo ${className}`}
       src="/senthur-logo.png"
       alt={`${project.legal}, ${project.tagline}`}
-      width="425"
-      height="117"
+      width="1200"
+      height="764"
     />
   )
 

@@ -212,10 +212,11 @@ select {
   min-height: 44px;
 }
 
+/* stacked lockup — needs more height than a horizontal one */
 .brand-logo {
   display: block;
   width: auto;
-  height: 36px;
+  height: 54px;
 }
 
 .masthead-call {
@@ -1082,7 +1083,7 @@ select {
 }
 
 .foot-logo {
-  height: 30px;
+  height: 48px;
 }
 
 .foot-name {
