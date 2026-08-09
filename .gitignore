@@ -7,3 +7,4 @@ dist
 # generated share files (npm run preview:file)
 preview-home.html
 preview-launch.html
+.claude/state/

@@ -29,8 +29,8 @@ export default function Layout() {
             src={layout.image}
             alt={layout.alt}
             loading="lazy"
-            width="1556"
-            height="1039"
+            width="1534"
+            height="1025"
           />
 
           <ul className="layout-facts">
